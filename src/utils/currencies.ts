@@ -1,4 +1,4 @@
-import { Currency } from "../types/currency";
+import type { Currency } from "../types/currency";
 
 export const MAJOR_CURRENCIES: Currency[] = [
   { code: 'USD', name: 'US Dollar', symbol: '$', flag: '🇺🇸' },
