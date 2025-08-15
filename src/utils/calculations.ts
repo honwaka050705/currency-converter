@@ -74,7 +74,7 @@ export const validateAmount = (value: string): {isValid: boolean, error: string 
   }
 
   // 正常
-  return {isValid: true}
+  return {isValid: true, error: null}
 }
 
 
