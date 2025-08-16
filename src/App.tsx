@@ -32,11 +32,6 @@ function App() {
           <ErrorMessage
             error={error}
           />
-          {/* {error && (
-            <div className='error-message'>
-               ⚠️ {error}
-            </div>
-          )} */}
           <LoadingSpinner loading={loading} />
           <AmountInput
             amount={amount}
