@@ -45,8 +45,8 @@ function App() {
             fromCurrency={fromCurrency}
             toCurrency={toCurrency}
             rates={rates}
-            onChange={setToCurrency}
-            amountError={amountError}
+            onCurrencyChange={setToCurrency}
+            error={amountError}
            />
           <div className='exchange-arrow'>⇩</div>
           <div className='rate-info'>
