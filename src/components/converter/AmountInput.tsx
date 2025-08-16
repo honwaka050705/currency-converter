@@ -24,6 +24,8 @@ export const AmountInput: React.FC<AmountInputProps> = props => {
           onChange={(e) => onAmountChange(e.target.value)}
           placeholder='金額を入力'
           className={error ? 'error' : ''}
+          min='0'
+          step='0.01'
         />
         <CurrencySelector
           value={currency}
