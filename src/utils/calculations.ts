@@ -64,7 +64,7 @@ export const validateAmount = (value: string): {isValid: boolean, error: string 
   }
 
   // 最小値チェック
-  if (numVal < 0) {
+  if (numVal <= 0) {
     return {isValid: false, error: '金額は0より大きい数字を入力してください。'}
   }
 
