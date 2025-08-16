@@ -7,16 +7,16 @@ type ConvertedAmountProps = {
   fromCurrency: string
   toCurrency: string
   rates: ExchangeRates | null
-  onChange: (currency: string) => void
-  amountError?: string | null
+  onCurrencyChange: (currency: string) => void
+  error?: string | null
 }
 
 /** レート変換結果表示部 */
 export const ConvertedAmount: React.FC<ConvertedAmountProps> = props => {
-  const { amount, fromCurrency, toCurrency, rates, onChange, amountError } = props
+  const { amount, fromCurrency, toCurrency, rates, onCurrencyChange, error } = props
 
   const calculateResult = (): string => {
-    if (!rates || !amount || amountError || isNaN(parseFloat(amount))) {
+    if (!rates || !amount || error || isNaN(parseFloat(amount))) {
       return '0.00'
     }
 
@@ -33,12 +33,12 @@ export const ConvertedAmount: React.FC<ConvertedAmountProps> = props => {
     <div className='output-section'>
       <label>換算先</label>
       <div className='currency-input'>
-        <div className={`result-amount ${amountError ? 'disabled' : ''}`}>
+        <div className={`result-amount ${error ? 'disabled' : ''}`}>
           {calculateResult()}
         </div>
         <CurrencySelector
           value={toCurrency}
-          onChange={onChange} />
+          onChange={onCurrencyChange} />
       </div>
     </div>    
   )
