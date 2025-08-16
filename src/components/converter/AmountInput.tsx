@@ -3,15 +3,15 @@ import { CurrencySelector } from "./CurrencySelector"
 
 type AmountInputProps = {
   amount: string
-  handleAmountChange: (value: string) => void
-  value: string
-  onChange: (currency: string) => void
-  amountError?: string | null
+  onAmountChange: (value: string) => void
+  currency: string
+  onCurrencyChange: (currency: string) => void
+  error?: string | null
 }
 
 /** 金額入力部 */
 export const AmountInput: React.FC<AmountInputProps> = props => {
-  const { amount, handleAmountChange, value, onChange, amountError } = props
+  const { amount, onAmountChange, currency, onCurrencyChange, error } = props
   return (
     <div className='input-section'>
       <label>換算元</label>
@@ -19,17 +19,17 @@ export const AmountInput: React.FC<AmountInputProps> = props => {
         <input
           type='number'
           value={amount}
-          onChange={(e) => handleAmountChange(e.target.value)}
+          onChange={(e) => onAmountChange(e.target.value)}
           placeholder='金額を入力'
-          className={amountError ? 'error' : ''}
+          className={error ? 'error' : ''}
         />
         <CurrencySelector
-          value={value}
-          onChange={onChange} />
+          value={currency}
+          onChange={onCurrencyChange} />
       </div>
-      {amountError && 
+      {error && 
         <div className='input-error'>
-          {amountError}
+          {error}
         </div>
       }
     </div>

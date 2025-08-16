@@ -40,10 +40,10 @@ function App() {
           <LoadingSpinner loading={loading} />
           <AmountInput
             amount={amount}
-            handleAmountChange={handleAmountChange}
-            value={fromCurrency}
-            onChange={setFromCurrency}
-            amountError={amountError}
+            onAmountChange={handleAmountChange}
+            currency={fromCurrency}
+            onCurrencyChange={setFromCurrency}
+            error={amountError}
           />
           <ConvertedAmount
             amount={amount}
