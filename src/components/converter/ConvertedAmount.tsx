@@ -1,6 +1,7 @@
 import { CurrencySelector } from "./CurrencySelector" 
 import type { ExchangeRates } from "../../types/exchangeRates"
 import { convertCurrency } from "../../utils/calculations"
+import { useMemo } from "react"
 
 type ConvertedAmountProps = {
   amount: string
@@ -15,7 +16,7 @@ type ConvertedAmountProps = {
 export const ConvertedAmount: React.FC<ConvertedAmountProps> = props => {
   const { amount, fromCurrency, toCurrency, rates, onCurrencyChange, error } = props
 
-  const calculateResult = (): string => {
+  const calculateResult = useMemo((): string => {
     if (!rates || !amount || error || isNaN(parseFloat(amount))) {
       return '0.00'
     }
@@ -27,14 +28,14 @@ export const ConvertedAmount: React.FC<ConvertedAmountProps> = props => {
     const result = convertCurrency(numAmount, fromRate, toRate)
 
     return result.toFixed(2)
-  }
+  }, [amount, fromCurrency, toCurrency, rates, error])
 
   return (
     <div className='output-section'>
       <label>換算先</label>
       <div className='currency-input'>
         <div className={`result-amount ${error ? 'disabled' : ''}`}>
-          {calculateResult()}
+          {calculateResult}
         </div>
         <CurrencySelector
           value={toCurrency}
