@@ -8,11 +8,11 @@ export const LoadingSpinner: React.FC<LoadingSpinnerProps> = ({
   loading = false,
   message = '📡 為替レートを取得中...'
 }) => {
+  if (!loading) return null
+
   return(
-    loading && (
-      <div className='loading-message'>
-        {message}
-      </div>
-    )
+    <div className='loading-message'>
+      {message}
+    </div>
   )
 }
