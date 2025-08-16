@@ -1,13 +1,13 @@
 type ErrorMessageProps = {
-  error: string
+  error?: string | null
 }
 
 /** エラーメッセージ表示部 */
-export const ErrorMessage: React.FC<ErrorMessageProps> = props => {
+export const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
   return (
-    props.error && (
+    error && (
       <div className='error-message'>
-        ⚠️ {props.error}
+        ⚠️ {error}
       </div>
     )
   )
