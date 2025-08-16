@@ -6,10 +6,8 @@ type ErrorMessageProps = {
 export const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
   if (!error) return null
   return (
-    error && (
-      <div className='error-message'>
-        ⚠️ {error}
-      </div>
-    )
+    <div className='error-message'>
+      ⚠️ {error}
+    </div>
   )
 }
