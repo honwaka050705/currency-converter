@@ -14,7 +14,9 @@ export const AmountInput: React.FC<AmountInputProps> = props => {
   const { amount, onAmountChange, currency, onCurrencyChange, error } = props
   return (
     <div className='input-section'>
-      <label>換算元</label>
+      {/* htmlForとは */}
+      {/* https://zenn.dev/kimura141899/articles/6e11e3a165460d */}
+      <label htmlFor="amount-input">換算元</label>
       <div className='currency-input'>
         <input
           type='number'
@@ -25,10 +27,12 @@ export const AmountInput: React.FC<AmountInputProps> = props => {
         />
         <CurrencySelector
           value={currency}
-          onChange={onCurrencyChange} />
+          onChange={onCurrencyChange}
+          aria-label="換算元通貨選択"
+        />
       </div>
       {error && 
-        <div className='input-error'>
+        <div className='input-error' role="alert">
           {error}
         </div>
       }
