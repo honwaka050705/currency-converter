@@ -4,6 +4,7 @@ type ErrorMessageProps = {
 
 /** エラーメッセージ表示部 */
 export const ErrorMessage: React.FC<ErrorMessageProps> = ({ error }) => {
+  if (!error) return null
   return (
     error && (
       <div className='error-message'>
